@@ -33,10 +33,10 @@ from demucs.pretrained import SOURCES
 from demucs.wav import build_metadata, Wavset, _get_musdb_valid
 
 
-MUSDB_PATH = '/checkpoint/defossez/datasets/musdbhq'
+MUSDB_PATH = '/mnt/parscratch/users/aca22cyy/musdb18hq'
 EXTRA_WAV_PATH = "/checkpoint/defossez/datasets/allstems_44"
 # WARNING: OUTPATH will be completely erased.
-OUTPATH = Path.home() / 'tmp/demucs_mdx/automix_musdb/'
+OUTPATH = Path.home() / '/mnt/parscratch/users/aca22cyy/automix/'
 CACHE = Path.home() / 'tmp/automix_cache'  # cache BPM and pitch information.
 CHANNELS = 2
 SR = 44100
@@ -206,8 +206,12 @@ def get_part(spec, source, dt, dp):
     """Apply given delta of tempo and delta of pitch to a stem."""
     wav = spec.track[source]
     if dt or dp:
-        wav = repitch(wav, dp, dt * 100, samplerate=SR, voice=source == 3)
-        spec = spec._replace(onsets=spec.onsets / (1 + dt))
+        # Convert to scalar values if they're arrays
+        dt_scalar = dt.item() if hasattr(dt, 'item') else float(dt)
+        dp_scalar = dp.item() if hasattr(dp, 'item') else float(dp)
+        
+        wav = repitch(wav, dp_scalar, dt_scalar * 100, samplerate=SR, voice=source == 3)
+        spec = spec._replace(onsets=spec.onsets / (1 + dt_scalar))
     return wav, spec
 
 

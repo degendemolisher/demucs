@@ -2,7 +2,7 @@
 
 # Automix dataset based on musdb train set.
 dset:
-  wav: /checkpoint/defossez/datasets/automix_musdb
+  wav: /mnt/parscratch/users/aca22cyy/automix/
   samplerate: 44100
   channels: 2
 epochs: 360

@@ -116,7 +116,54 @@ class Solver(object):
             model = pretrained.get_model(
                 name=self.args.continue_pretrained,
                 repo=self.args.pretrained_repo)
-            self.model.load_state_dict(model.state_dict())
+            
+            # Print model keys for debugging
+            pretrained_keys = set(model.state_dict().keys())
+            local_keys = set(self.model.state_dict().keys())
+            
+            logger.info(f"Pretrained model has {len(pretrained_keys)} keys")
+            logger.info(f"Local model has {len(local_keys)} keys")
+            
+            # Print some example missing keys
+            missing_keys = local_keys - pretrained_keys
+            if missing_keys:
+                logger.info(f"Sample of missing keys: {list(missing_keys)[:10]}")
+            
+            extra_keys = pretrained_keys - local_keys
+            if extra_keys:
+                logger.info(f"Sample of extra keys in pretrained: {list(extra_keys)[:10]}")
+            
+            # Check if pretrained keys have a common prefix like "models.0."
+            prefixes = set()
+            for key in pretrained_keys:
+                parts = key.split('.')
+                if len(parts) >= 2:
+                    prefixes.add(f"{parts[0]}.{parts[1]}.")
+            
+            # If there's a common prefix, strip it
+            common_prefix = None
+            if len(prefixes) == 1:
+                common_prefix = next(iter(prefixes))
+                logger.info(f"Detected common prefix '{common_prefix}' in pretrained model keys")
+                
+                # Create a new state dict with remapped keys
+                state_dict = model.state_dict()
+                remapped_state_dict = {}
+                for key, value in state_dict.items():
+                    if key.startswith(common_prefix):
+                        new_key = key[len(common_prefix):]
+                        remapped_state_dict[new_key] = value
+                    else:
+                        remapped_state_dict[key] = value
+                
+                # Try loading with the remapped state dict
+                logger.info(f"Attempting to load model with remapped keys (removed prefix '{common_prefix}')")
+                self.model.load_state_dict(remapped_state_dict, strict=False)
+                logger.info("Loaded pretrained model with remapped keys and strict=False")
+            else:
+                # If no common prefix found, just load as is with strict=False
+                self.model.load_state_dict(model.state_dict(), strict=False)
+                logger.info("Loaded pretrained model with strict=False")
         elif self.args.continue_from:
             name = 'checkpoint.th'
             root = self.folder.parent

@@ -9,10 +9,12 @@ julius>=0.2.3
 lameenc>=1.2
 museval
 mypy
+numpy<2
 openunmix
 pyyaml
 submitit
-torch>=1.8.1
+torch==2.0.1
+torchaudio==2.0.2
 torchaudio>=0.8,<2.2
 tqdm
 treetable
