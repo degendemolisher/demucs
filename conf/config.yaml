@@ -9,6 +9,7 @@ defaults:
 dummy:
 dset:
   musdb: /mnt/parscratch/users/aca22cyy/musdb18hq
+  musdb_processed: /mnt/parscratch/users/aca22cyy/musdb18hq_processed
   musdb_samplerate: 44100
   use_musdb: true   # set to false to not use musdb as training data.
   wav:  # path to custom wav dataset
