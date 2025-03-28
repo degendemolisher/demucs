@@ -9,6 +9,7 @@ julius>=0.2.3
 lameenc>=1.2
 museval
 mypy
+numpy<2
 openunmix
 pyyaml
 submitit
