@@ -79,8 +79,10 @@ def evaluate(solver, compute_sdr=False):
     json_folder.mkdir(exist_ok=True, parents=True)
 
     # we load tracks from the original musdb set
-    if args.test.processed:
-        test_set = musdb.DB(args.dset.musdb_processed, subsets=["test"], is_wav=True)
+    if args.test.distorted:
+        test_set = musdb.DB(args.dset.musdb_distorted, subsets=["test"], is_wav=True)
+    elif args.test.reverb:
+        test_set = musdb.DB(args.dset.musdb_reverb, subsets=["test"], is_wav=True)
     elif args.test.nonhq is None:
         test_set = musdb.DB(args.dset.musdb, subsets=["test"], is_wav=True)
     else:
