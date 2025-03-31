@@ -38,6 +38,8 @@ test:
   sdr: true
   metric: 'loss'  # metric used for best model selection on the valid set, can also be nsdr
   nonhq:   # path to non hq MusDB for evaluation
+  distorted: False
+  reverb: False
 
 epochs: 360
 batch_size: 64
