@@ -11,6 +11,10 @@ dset:
   musdb: /mnt/parscratch/users/aca22cyy/musdb18hq
   musdb_reverb: /mnt/parscratch/users/aca22cyy/musdb18hq_reverb
   musdb_distorted: /mnt/parscratch/users/aca22cyy/musdb18hq_distorted
+  musdb_shifted_left: /mnt/parscratch/users/aca22cyy/musdb18hq_shifted_left
+  musdb_shifted_both: /mnt/parscratch/users/aca22cyy/musdb18hq_shifted_both
+  musdb_mp3_64kbps_combined: /mnt/parscratch/users/aca22cyy/musdb18hq_mp3_64kbps_combined
+  musdb_mp3_64kbps_direct: /mnt/parscratch/users/aca22cyy/musdb18hq_mp3_64kbps_direct
   musdb_samplerate: 44100
   use_musdb: true   # set to false to not use musdb as training data.
   wav:  # path to custom wav dataset

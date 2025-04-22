@@ -83,6 +83,14 @@ def evaluate(solver, compute_sdr=False):
         test_set = musdb.DB(args.dset.musdb_distorted, subsets=["test"], is_wav=True)
     elif args.test.reverb:
         test_set = musdb.DB(args.dset.musdb_reverb, subsets=["test"], is_wav=True)
+    elif args.test.shifted_left:
+        test_set = musdb.DB(args.dset.musdb_shifted_left, subsets=["test"], is_wav=True)
+    elif args.test.shifted_both:
+        test_set = musdb.DB(args.dset.musdb_shifted_both, subsets=["test"], is_wav=True)
+    elif args.test.mp3_64kbps_combined:
+        test_set = musdb.DB(args.dset.musdb_mp3_64kbps_combined, subsets=["test"], is_wav=True)
+    elif args.test.mp3_64kbps_direct:
+        test_set = musdb.DB(args.dset.musdb_mp3_64kbps_direct, subsets=["test"], is_wav=True)
     elif args.test.nonhq is None:
         test_set = musdb.DB(args.dset.musdb, subsets=["test"], is_wav=True)
     else:
