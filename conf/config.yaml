@@ -15,7 +15,7 @@ dset:
   musdb_shifted_both: /mnt/parscratch/users/aca22cyy/musdb18hq_shifted_both
   musdb_mp3_64kbps_combined: /mnt/parscratch/users/aca22cyy/musdb18hq_mp3_64kbps_combined
   musdb_mp3_64kbps_direct: /mnt/parscratch/users/aca22cyy/musdb18hq_mp3_64kbps_direct
-  automix: /mnt/parscratch/users/aca22cyy/automix
+  musdb_automix: /mnt/parscratch/users/aca22cyy/automix
   musdb_vocal_none: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_none
   musdb_vocal_left: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_left
   musdb_vocal_soft: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_soft
