@@ -10,7 +10,7 @@
 
 # Email notifications
 #SBATCH --mail-user=cyyeung3@sheffield.ac.uk
-#SBATCH --mail-type=FAIL
+#SBATCH --mail-type=ALL
 
 # Load the required modules
 export LMOD_DISABLE_SAME_NAME_AUTOSWAP="no"

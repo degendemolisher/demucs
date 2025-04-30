@@ -290,7 +290,7 @@ def main():
     (OUTPATH / 'valid').mkdir(exist_ok=True, parents=True)
     out = OUTPATH / 'train'
 
-    dset = get_musdb_dataset()
+    dset = get_musdb_dataset('test')
     # dset2 = get_wav_dataset()
     # dset3 = get_musdb_dataset('test')
     dset2 = None
