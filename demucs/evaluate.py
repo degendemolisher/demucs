@@ -91,10 +91,21 @@ def evaluate(solver, compute_sdr=False):
         test_set = musdb.DB(args.dset.musdb_mp3_64kbps_combined, subsets=["test"], is_wav=True)
     elif args.test.mp3_64kbps_direct:
         test_set = musdb.DB(args.dset.musdb_mp3_64kbps_direct, subsets=["test"], is_wav=True)
+    elif args.test.automix:
+        test_set = musdb.DB(args.dset.musdb_automix, subsets=["test"], is_wav=True)
+    elif args.test.vocal_none:
+        test_set = musdb.DB(args.dset.musdb_vocal_none, subsets=["test"], is_wav=True)
+    elif args.test.vocal_left:
+        test_set = musdb.DB(args.dset.musdb_vocal_left, subsets=["test"], is_wav=True)
+    elif args.test.vocal_soft:
+        test_set = musdb.DB(args.dset.musdb_vocal_soft, subsets=["test"], is_wav=True)
+    elif args.test.vocal_loud:
+        test_set = musdb.DB(args.dset.musdb_vocal_loud, subsets=["test"], is_wav=True)
     elif args.test.nonhq is None:
         test_set = musdb.DB(args.dset.musdb, subsets=["test"], is_wav=True)
     else:
-        test_set = musdb.DB(args.test.nonhq, subsets=["test"], is_wav=False)
+        # test_set = musdb.DB(args.test.nonhq, subsets=["test"], is_wav=False)
+        test_set = None
     src_rate = args.dset.musdb_samplerate
 
     eval_device = 'cpu'

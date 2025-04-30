@@ -16,8 +16,10 @@ dset:
   musdb_mp3_64kbps_combined: /mnt/parscratch/users/aca22cyy/musdb18hq_mp3_64kbps_combined
   musdb_mp3_64kbps_direct: /mnt/parscratch/users/aca22cyy/musdb18hq_mp3_64kbps_direct
   automix: /mnt/parscratch/users/aca22cyy/automix
-  musdb_no_vocals: /mnt/parscratch/users/aca22cyy/musdb18hq_no_vocals
-  musdb_left_vocals: /mnt/parscratch/users/aca22cyy/musdb18hq_left_vocals
+  musdb_vocal_none: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_none
+  musdb_vocal_left: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_left
+  musdb_vocal_soft: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_soft
+  musdb_vocal_loud: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_loud
   musdb_samplerate: 44100
   use_musdb: true   # set to false to not use musdb as training data.
   wav:  # path to custom wav dataset
@@ -52,8 +54,10 @@ test:
   mp3_64kbps_combined: False
   mp3_64kbps_direct: False
   automix: False
-  no_vocals: False
-  left_vocals: False
+  vocal_none: False
+  vocal_left: False
+  vocal_soft: False
+  vocal_loud: False
 
 epochs: 360
 batch_size: 64
