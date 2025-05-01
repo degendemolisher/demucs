@@ -11,6 +11,7 @@ be reported as `nsdr` for `new sdr`).
 
 from concurrent import futures
 import logging
+from pathlib import Path
 
 from dora.log import LogProgress
 import numpy as np
@@ -145,10 +146,38 @@ def evaluate(solver, compute_sdr=False):
             references = convert_audio(references, src_rate,
                                        model.samplerate, model.audio_channels)
             if args.test.save:
-                folder = solver.folder / "wav" / track.name
+                # Define the base directory and include the dataset name (replace placeholder)
+                if args.test.distorted:
+                    dataset_name = "distorted"
+                elif args.test.reverb:
+                    dataset_name = "reverb"
+                elif args.test.shifted_left:
+                    dataset_name = "shifted_left"
+                elif args.test.shifted_both:
+                    dataset_name = "shifted_both"
+                elif args.test.mp3_64kbps_combined:
+                    dataset_name = "mp3_64kbps_combined"
+                elif args.test.mp3_64kbps_direct:
+                    dataset_name = "mp3_64kbps_direct"
+                elif args.test.automix:
+                    dataset_name = "automix"
+                elif args.test.vocal_none:
+                    dataset_name = "vocal_none"
+                elif args.test.vocal_left:
+                    dataset_name = "vocal_left"
+                elif args.test.vocal_soft:
+                    dataset_name = "vocal_soft"
+                elif args.test.vocal_loud:
+                    dataset_name = "vocal_loud"
+                elif args.test.nonhq is None:
+                    dataset_name = "musdb"
+                else:
+                    dataset_name = "nonhq"
+                base_save_path = Path(f"/mnt/parscratch/users/aca22cyy/estimates/{dataset_name}")
+                folder = base_save_path / track.name # Use your desired base path + track name
                 folder.mkdir(exist_ok=True, parents=True)
                 for name, estimate in zip(model.sources, estimates):
-                    save_audio(estimate.cpu(), folder / (name + ".mp3"), model.samplerate)
+                    save_audio(estimate.cpu(), folder / (name + ".wav"), model.samplerate)
 
             pendings.append((track.name, pool.submit(
                 eval_track, references, estimates, win=win, hop=hop, compute_sdr=compute_sdr)))

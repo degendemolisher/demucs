@@ -37,7 +37,7 @@ dset:
   backend: null   # if provided select torchaudio backend.
 
 test:
-  save: False
+  save: True
   best: True
   workers: 2
   every: 20
