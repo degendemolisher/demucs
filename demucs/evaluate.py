@@ -206,6 +206,19 @@ def evaluate(solver, compute_sdr=False):
         for src in range(distrib.world_size):
             all_tracks.update(distrib.share(tracks, src))
 
+        per_song_stats = []
+        for track_name in sorted(all_tracks.keys()):
+            song_dict = {"track": track_name}
+            for source in model.sources:
+                for metric_name, value in all_tracks[track_name][source].items():
+                    # Only include SDR or nsdr stats
+                    if metric_name.lower() in ("sdr", "nsdr"):
+                        key = f"{source}_{metric_name}"
+                        song_dict[key] = value
+            per_song_stats.append(song_dict)
+        print("Per-song stats (SDR/nsdr only):")
+        print(per_song_stats)
+
         result = {}
         metric_names = next(iter(all_tracks.values()))[model.sources[0]]
         for metric_name in metric_names:
