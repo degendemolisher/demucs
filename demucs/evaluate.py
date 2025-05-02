@@ -212,10 +212,18 @@ def evaluate(solver, compute_sdr=False):
             for source in model.sources:
                 for metric_name, value in all_tracks[track_name][source].items():
                     # Only include SDR or nsdr stats
-                    if metric_name.lower() in ("sdr", "nsdr"):
+                    if metric_name.lower() in ("nsdr"):
                         key = f"{source}_{metric_name}"
                         song_dict[key] = value
             per_song_stats.append(song_dict)
+
+        for song in per_song_stats:
+            for key, value in song.items():
+                if key.endswith("_SDR") and isinstance(value, list):
+                    # Compute mean SDR, ignoring nan
+                    song[key] = float(np.nanmean(value))
+                    song[key + "_med"] = float(np.nanmedian(value))
+
         print("Per-song stats (SDR/nsdr only):")
         print(per_song_stats)
 
