@@ -218,7 +218,8 @@ def evaluate(solver, compute_sdr=False):
             per_song_stats.append(song_dict)
 
         for song in per_song_stats:
-            for key, value in song.items():
+            for key in list(song.keys()):
+                value = song[key]
                 if key.endswith("_SDR") and isinstance(value, list):
                     # Compute mean SDR, ignoring nan
                     song[key] = float(np.nanmean(value))
