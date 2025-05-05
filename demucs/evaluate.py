@@ -103,7 +103,7 @@ def evaluate(solver, compute_sdr=False):
     elif args.test.vocal_loud:
         test_set = musdb.DB(args.dset.musdb_vocal_loud, subsets=["test"], is_wav=True)
     elif args.test.custom:
-        test_set = musdb.DB(args.dset.musdb_custom, subsets=["test"], is_wav=True)
+        test_set = musdb.DB(args.dset.custom, subsets=["test"], is_wav=True)
     elif args.test.nonhq is None:
         test_set = musdb.DB(args.dset.musdb, subsets=["test"], is_wav=True)
     else:
