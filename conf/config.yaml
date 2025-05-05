@@ -20,6 +20,14 @@ dset:
   musdb_vocal_left: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_left
   musdb_vocal_soft: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_soft
   musdb_vocal_loud: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_loud
+  musdb_plus10: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+10dB
+  musdb_minus10: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_-10dB
+  musdb_plus6: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+6dB
+  musdb_minus6: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_-6dB
+  musdb_plus3: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+3dB
+  musdb_minus3: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_-3dB
+  musdb_plus1: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+1dB
+  musdb_minus1: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_-1dB
   custom: /mnt/parscratch/users/aca22cyy/custom
   musdb_samplerate: 44100
   use_musdb: true   # set to false to not use musdb as training data.
@@ -59,6 +67,14 @@ test:
   vocal_left: False
   vocal_soft: False
   vocal_loud: False
+  plus10: False
+  minus10: False
+  plus6: False
+  minus6: False
+  plus3: False
+  minus3: False
+  plus1: False
+  minus1: False
   custom: False
 
 epochs: 360

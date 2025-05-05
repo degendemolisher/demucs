@@ -102,6 +102,22 @@ def evaluate(solver, compute_sdr=False):
         test_set = musdb.DB(args.dset.musdb_vocal_soft, subsets=["test"], is_wav=True)
     elif args.test.vocal_loud:
         test_set = musdb.DB(args.dset.musdb_vocal_loud, subsets=["test"], is_wav=True)
+    elif args.test.plus10:
+        test_set = musdb.DB(args.dset.musdb_plus10, subsets=["test"], is_wav=True)
+    elif args.test.minus10:
+        test_set = musdb.DB(args.dset.musdb_minus10, subsets=["test"], is_wav=True)
+    elif args.test.plus6:
+        test_set = musdb.DB(args.dset.musdb_plus6, subsets=["test"], is_wav=True)
+    elif args.test.minus6:
+        test_set = musdb.DB(args.dset.musdb_minus6, subsets=["test"], is_wav=True)
+    elif args.test.plus3:
+        test_set = musdb.DB(args.dset.musdb_plus3, subsets=["test"], is_wav=True)
+    elif args.test.minus3:
+        test_set = musdb.DB(args.dset.musdb_minus3, subsets=["test"], is_wav=True)
+    elif args.test.plus1:
+        test_set = musdb.DB(args.dset.musdb_plus1, subsets=["test"], is_wav=True)
+    elif args.test.minus1:
+        test_set = musdb.DB(args.dset.musdb_minus1, subsets=["test"], is_wav=True)
     elif args.test.custom:
         test_set = musdb.DB(args.dset.custom, subsets=["test"], is_wav=True)
     elif args.test.nonhq is None:
@@ -171,6 +187,22 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "vocal_soft"
                 elif args.test.vocal_loud:
                     dataset_name = "vocal_loud"
+                elif args.test.plus10:
+                    dataset_name = "loudness_+10"
+                elif args.test.minus10:
+                    dataset_name = "loudness_-10"
+                elif args.test.plus6:
+                    dataset_name = "loudness_+6"
+                elif args.test.minus6:
+                    dataset_name = "loudness_-6"
+                elif args.test.plus3:
+                    dataset_name = "loudness_+3"
+                elif args.test.minus3:
+                    dataset_name = "loudness_-3"
+                elif args.test.plus1:
+                    dataset_name = "loudness_+1"
+                elif args.test.minus1:
+                    dataset_name = "loudness_-1"
                 elif args.test.custom:
                     dataset_name = "custom"
                 elif args.test.nonhq is None:
