@@ -102,6 +102,8 @@ def evaluate(solver, compute_sdr=False):
         test_set = musdb.DB(args.dset.musdb_vocal_soft, subsets=["test"], is_wav=True)
     elif args.test.vocal_loud:
         test_set = musdb.DB(args.dset.musdb_vocal_loud, subsets=["test"], is_wav=True)
+    elif args.test.custom:
+        test_set = musdb.DB(args.dset.musdb_custom, subsets=["test"], is_wav=True)
     elif args.test.nonhq is None:
         test_set = musdb.DB(args.dset.musdb, subsets=["test"], is_wav=True)
     else:
@@ -169,6 +171,8 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "vocal_soft"
                 elif args.test.vocal_loud:
                     dataset_name = "vocal_loud"
+                elif args.test.custom:
+                    dataset_name = "custom"
                 elif args.test.nonhq is None:
                     dataset_name = "musdb"
                 else:

@@ -20,6 +20,7 @@ dset:
   musdb_vocal_left: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_left
   musdb_vocal_soft: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_soft
   musdb_vocal_loud: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_loud
+  custom: /mnt/parscratch/users/aca22cyy/custom
   musdb_samplerate: 44100
   use_musdb: true   # set to false to not use musdb as training data.
   wav:  # path to custom wav dataset
@@ -58,6 +59,7 @@ test:
   vocal_left: False
   vocal_soft: False
   vocal_loud: False
+  custom: False
 
 epochs: 360
 batch_size: 64
