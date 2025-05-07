@@ -28,6 +28,7 @@ dset:
   musdb_minus3: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_-3dB
   musdb_plus1: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+1dB
   musdb_minus1: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_-1dB
+  musdb_plus0: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+0dB
   custom: /mnt/parscratch/users/aca22cyy/custom
   musdb_samplerate: 44100
   use_musdb: true   # set to false to not use musdb as training data.
@@ -75,6 +76,7 @@ test:
   minus3: False
   plus1: False
   minus1: False
+  plus0: False
   custom: False
 
 epochs: 360

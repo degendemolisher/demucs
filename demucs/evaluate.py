@@ -118,6 +118,8 @@ def evaluate(solver, compute_sdr=False):
         test_set = musdb.DB(args.dset.musdb_plus1, subsets=["test"], is_wav=True)
     elif args.test.minus1:
         test_set = musdb.DB(args.dset.musdb_minus1, subsets=["test"], is_wav=True)
+    elif args.test.plus0:
+        test_set = musdb.DB(args.dset.musdb_plus0, subsets=["test"], is_wav=True)
     elif args.test.custom:
         test_set = musdb.DB(args.dset.custom, subsets=["test"], is_wav=True)
     elif args.test.nonhq is None:
@@ -203,6 +205,8 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "loudness_+1"
                 elif args.test.minus1:
                     dataset_name = "loudness_-1"
+                elif args.test.plus0:
+                    dataset_name = "loudness_+0"
                 elif args.test.custom:
                     dataset_name = "custom"
                 elif args.test.nonhq is None:
