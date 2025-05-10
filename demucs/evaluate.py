@@ -231,6 +231,8 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "RIR1"
                 elif args.test.RIR2:
                     dataset_name = "RIR2"
+                elif args.test.input_loudness_db:
+                    dataset_name = f"loudness_{'+' if args.test.input_loudness_db > 0 else ''}{args.test.input_loudness_db}"
                 elif args.test.custom:
                     dataset_name = "custom"
                 elif args.test.nonhq is None:
