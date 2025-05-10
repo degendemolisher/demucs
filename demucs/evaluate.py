@@ -120,6 +120,12 @@ def evaluate(solver, compute_sdr=False):
         test_set = musdb.DB(args.dset.musdb_minus1, subsets=["test"], is_wav=True)
     elif args.test.plus0:
         test_set = musdb.DB(args.dset.musdb_plus0, subsets=["test"], is_wav=True)
+    elif args.test.bandpass_300_8000:
+        test_set = musdb.DB(args.dset.musdb_bandpass_300_8000, subsets=["test"], is_wav=True)
+    elif args.test.RIR1:
+        test_set = musdb.DB(args.dset.musdb_RIR1, subsets=["test"], is_wav=True)
+    elif args.test.RIR2:
+        test_set = musdb.DB(args.dset.musdb_RIR2, subsets=["test"], is_wav=True)
     elif args.test.custom:
         test_set = musdb.DB(args.dset.custom, subsets=["test"], is_wav=True)
     elif args.test.nonhq is None:
@@ -207,6 +213,12 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "loudness_-1"
                 elif args.test.plus0:
                     dataset_name = "loudness_+0"
+                elif args.test.bandpass_300_8000:
+                    dataset_name = "bandpass_300_8000"
+                elif args.test.RIR1:
+                    dataset_name = "RIR1"
+                elif args.test.RIR2:
+                    dataset_name = "RIR2"
                 elif args.test.custom:
                     dataset_name = "custom"
                 elif args.test.nonhq is None:

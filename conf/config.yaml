@@ -29,6 +29,9 @@ dset:
   musdb_plus1: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+1dB
   musdb_minus1: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_-1dB
   musdb_plus0: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+0dB
+  musdb_bandpass_300_8000: /mnt/parscratch/users/aca22cyy/musdb18hq_bandpass_300_8000
+  musdb_RIR1: /mnt/parscratch/users/aca22cyy/musdb18hq_RIR1
+  musdb_RIR2: /mnt/parscratch/users/aca22cyy/musdb18hq_RIR2
   custom: /mnt/parscratch/users/aca22cyy/custom
   musdb_samplerate: 44100
   use_musdb: true   # set to false to not use musdb as training data.
@@ -77,6 +80,9 @@ test:
   plus1: False
   minus1: False
   plus0: False
+  bandpass_300_8000: False
+  RIR1: False
+  RIR2: False
   custom: False
 
 epochs: 360
