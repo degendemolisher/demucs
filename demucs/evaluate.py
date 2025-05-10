@@ -11,6 +11,7 @@ be reported as `nsdr` for `new sdr`).
 
 from concurrent import futures
 import logging
+import math
 from pathlib import Path
 
 from dora.log import LogProgress
@@ -157,11 +158,17 @@ def evaluate(solver, compute_sdr=False):
             mix = mix.to(solver.device)
             ref = mix.mean(dim=0)  # mono mixture
             mix = (mix - ref.mean()) / ref.std()
+
+            if args.test.input_loudness_db is not None:
+                gain = math.pow(10.0, args.test.input_loudness_db / 20.0)
+                mix = mix * gain
+            
             mix = convert_audio(mix, src_rate, model.samplerate, model.audio_channels)
             estimates = apply_model(model, mix[None],
                                     shifts=args.test.shifts, split=args.test.split,
                                     overlap=args.test.overlap)[0]
-            estimates = estimates * ref.std() + ref.mean()
+            if args.test.input_loudness_db is None:
+                estimates = estimates * ref.std() + ref.mean()
             estimates = estimates.to(eval_device)
 
             references = th.stack(

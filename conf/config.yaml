@@ -60,6 +60,7 @@ test:
   sdr: true
   metric: 'loss'  # metric used for best model selection on the valid set, can also be nsdr
   nonhq:   # path to non hq MusDB for evaluation
+  input_loudness_db: # input loudness for the test set, used to normalize the input.
   reverb: False
   distorted: False
   shifted_left: False
