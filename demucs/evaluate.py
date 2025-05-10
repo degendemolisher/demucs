@@ -28,6 +28,12 @@ from .utils import DummyPoolExecutor
 
 logger = logging.getLogger(__name__)
 
+save_tracks = [
+    "Al James - Schoolboy Facination",
+    "Sambasevam Shanmugam - Kaathaadi",
+    "The Easton Ellises - Falcon 69",
+    ]
+
 
 def new_sdr(references, estimates):
     """
@@ -232,11 +238,12 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "musdb"
                 else:
                     dataset_name = "nonhq"
-                base_save_path = Path(f"/mnt/parscratch/users/aca22cyy/estimates/{dataset_name}")
-                folder = base_save_path / track.name # Use your desired base path + track name
-                folder.mkdir(exist_ok=True, parents=True)
-                for name, estimate in zip(model.sources, estimates):
-                    save_audio(estimate.cpu(), folder / (name + ".wav"), model.samplerate)
+                if track.name in save_tracks:
+                    base_save_path = Path(f"/mnt/parscratch/users/aca22cyy/estimates/{dataset_name}")
+                    folder = base_save_path / track.name # Use your desired base path + track name
+                    folder.mkdir(exist_ok=True, parents=True)
+                    for name, estimate in zip(model.sources, estimates):
+                        save_audio(estimate.cpu(), folder / (name + ".wav"), model.samplerate)
 
             pendings.append((track.name, pool.submit(
                 eval_track, references, estimates, win=win, hop=hop, compute_sdr=compute_sdr)))
