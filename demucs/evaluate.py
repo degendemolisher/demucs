@@ -173,8 +173,7 @@ def evaluate(solver, compute_sdr=False):
             estimates = apply_model(model, mix[None],
                                     shifts=args.test.shifts, split=args.test.split,
                                     overlap=args.test.overlap)[0]
-            if args.test.input_loudness_db is None:
-                estimates = estimates * ref.std() + ref.mean()
+            estimates = estimates * ref.std() + ref.mean()
             estimates = estimates.to(eval_device)
 
             references = th.stack(
