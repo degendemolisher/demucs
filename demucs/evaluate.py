@@ -133,6 +133,8 @@ def evaluate(solver, compute_sdr=False):
         test_set = musdb.DB(args.dset.musdb_RIR1, subsets=["test"], is_wav=True)
     elif args.test.RIR2:
         test_set = musdb.DB(args.dset.musdb_RIR2, subsets=["test"], is_wav=True)
+    elif args.test.speech:
+        test_set = musdb.DB(args.dset.musdb_speech, subsets=["test"], is_wav=True)
     elif args.test.custom:
         test_set = musdb.DB(args.dset.custom, subsets=["test"], is_wav=True)
     elif args.test.nonhq is None:
@@ -231,6 +233,8 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "RIR1"
                 elif args.test.RIR2:
                     dataset_name = "RIR2"
+                elif args.test.speech:
+                    dataset_name = "speech"
                 elif args.test.input_loudness_db:
                     dataset_name = f"loudness_{'+' if args.test.input_loudness_db > 0 else ''}{args.test.input_loudness_db}"
                 elif args.test.custom:

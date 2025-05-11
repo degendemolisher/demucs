@@ -32,6 +32,7 @@ dset:
   musdb_bandpass_300_8000: /mnt/parscratch/users/aca22cyy/musdb18hq_bandpass_300_8000
   musdb_RIR1: /mnt/parscratch/users/aca22cyy/musdb18hq_RIR1
   musdb_RIR2: /mnt/parscratch/users/aca22cyy/musdb18hq_RIR2
+  musdb_speech: /mnt/parscratch/users/aca22cyy/musdb18hq_speech
   custom: /mnt/parscratch/users/aca22cyy/custom
   musdb_samplerate: 44100
   use_musdb: true   # set to false to not use musdb as training data.
@@ -84,6 +85,7 @@ test:
   bandpass_300_8000: False
   RIR1: False
   RIR2: False
+  speech: False
   custom: False
 
 epochs: 360
