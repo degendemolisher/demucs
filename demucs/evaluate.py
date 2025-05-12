@@ -305,11 +305,20 @@ def evaluate(solver, compute_sdr=False):
             avg = 0
             avg_of_medians = 0
             for source in model.sources:
-                medians = [
-                    np.nanmedian(all_tracks[track][source][metric_name])
-                    for track in all_tracks.keys()]
-                mean = np.mean(medians)
-                median = np.median(medians)
+                medians = []
+                for track in all_tracks.keys():
+                    values = all_tracks[track][source][metric_name]
+                    # Only compute median if there is at least one non-nan value
+                    arr = np.asarray(values)
+                    if np.isnan(arr).all():
+                        continue  # skip this track for this source/metric
+                    medians.append(np.nanmedian(arr))
+                if medians:
+                    mean = np.mean(medians)
+                    median = np.median(medians)
+                else:
+                    mean = float('nan')
+                    median = float('nan')
                 result[metric_name.lower() + "_" + source] = mean
                 result[metric_name.lower() + "_med" + "_" + source] = median
                 avg += mean / len(model.sources)
