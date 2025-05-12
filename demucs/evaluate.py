@@ -96,7 +96,7 @@ def evaluate(solver, compute_sdr=False):
     elif args.test.shifted_both:
         test_set = musdb.DB(args.dset.musdb_shifted_both, subsets=["test"], is_wav=True)
     elif args.test.shifted_both_025:
-        test_set = musdb.DB(args.dset.musdb_shifted_both_0.25, subsets=["test"], is_wav=True)
+        test_set = musdb.DB(args.dset.musdb_shifted_both_025, subsets=["test"], is_wav=True)
     elif args.test.mp3_64kbps_combined:
         test_set = musdb.DB(args.dset.musdb_mp3_64kbps_combined, subsets=["test"], is_wav=True)
     elif args.test.mp3_128kbps_combined:
