@@ -95,8 +95,16 @@ def evaluate(solver, compute_sdr=False):
         test_set = musdb.DB(args.dset.musdb_shifted_left, subsets=["test"], is_wav=True)
     elif args.test.shifted_both:
         test_set = musdb.DB(args.dset.musdb_shifted_both, subsets=["test"], is_wav=True)
+    elif args.test.shifted_both_025:
+        test_set = musdb.DB(args.dset.musdb_shifted_both_0.25, subsets=["test"], is_wav=True)
     elif args.test.mp3_64kbps_combined:
         test_set = musdb.DB(args.dset.musdb_mp3_64kbps_combined, subsets=["test"], is_wav=True)
+    elif args.test.mp3_128kbps_combined:
+        test_set = musdb.DB(args.dset.musdb_mp3_128kbps_combined, subsets=["test"], is_wav=True)
+    elif args.test.mp3_256kbps_combined:
+        test_set = musdb.DB(args.dset.musdb_mp3_256kbps_combined, subsets=["test"], is_wav=True)
+    elif args.test.mp3_320kbps_combined:
+        test_set = musdb.DB(args.dset.musdb_mp3_320kbps_combined, subsets=["test"], is_wav=True)
     elif args.test.mp3_64kbps_direct:
         test_set = musdb.DB(args.dset.musdb_mp3_64kbps_direct, subsets=["test"], is_wav=True)
     elif args.test.automix:
@@ -195,8 +203,16 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "shifted_left"
                 elif args.test.shifted_both:
                     dataset_name = "shifted_both"
+                elif args.test.shifted_both_025:
+                    dataset_name = "shifted_both_0.25"
                 elif args.test.mp3_64kbps_combined:
                     dataset_name = "mp3_64kbps_combined"
+                elif args.test.mp3_128kbps_combined:
+                    dataset_name = "mp3_128kbps_combined"
+                elif args.test.mp3_256kbps_combined:
+                    dataset_name = "mp3_256kbps_combined"
+                elif args.test.mp3_320kbps_combined:
+                    dataset_name = "mp3_320kbps_combined"
                 elif args.test.mp3_64kbps_direct:
                     dataset_name = "mp3_64kbps_direct"
                 elif args.test.automix:

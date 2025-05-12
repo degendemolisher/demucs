@@ -13,7 +13,11 @@ dset:
   musdb_distorted: /mnt/parscratch/users/aca22cyy/musdb18hq_distorted
   musdb_shifted_left: /mnt/parscratch/users/aca22cyy/musdb18hq_shifted_left
   musdb_shifted_both: /mnt/parscratch/users/aca22cyy/musdb18hq_shifted_both
+  musdb_shifted_both_025: /mnt/parscratch/users/aca22cyy/musdb18hq_shifted_both_0.25
   musdb_mp3_64kbps_combined: /mnt/parscratch/users/aca22cyy/musdb18hq_mp3_64kbps_combined
+  musdb_mp3_128kbps_combined: /mnt/parscratch/users/aca22cyy/musdb18hq_mp3_128kbps_combined
+  musdb_mp3_256kbps_combined: /mnt/parscratch/users/aca22cyy/musdb18hq_mp3_256kbps_combined
+  musdb_mp3_320kbps_combined: /mnt/parscratch/users/aca22cyy/musdb18hq_mp3_320kbps_combined
   musdb_mp3_64kbps_direct: /mnt/parscratch/users/aca22cyy/musdb18hq_mp3_64kbps_direct
   musdb_automix: /mnt/parscratch/users/aca22cyy/automix
   musdb_vocal_none: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_none
@@ -66,7 +70,11 @@ test:
   distorted: False
   shifted_left: False
   shifted_both: False
+  shifted_both_025: False
   mp3_64kbps_combined: False
+  mp3_128kbps_combined: False
+  mp3_256kbps_combined: False
+  mp3_320kbps_combined: False
   mp3_64kbps_direct: False
   automix: False
   vocal_none: False
