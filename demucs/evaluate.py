@@ -119,24 +119,16 @@ def evaluate(solver, compute_sdr=False):
         test_set = musdb.DB(args.dset.musdb_vocal_loud, subsets=["test"], is_wav=True)
     elif args.test.plus10:
         test_set = musdb.DB(args.dset.musdb_plus10, subsets=["test"], is_wav=True)
-    elif args.test.minus10:
-        test_set = musdb.DB(args.dset.musdb_minus10, subsets=["test"], is_wav=True)
     elif args.test.plus6:
         test_set = musdb.DB(args.dset.musdb_plus6, subsets=["test"], is_wav=True)
-    elif args.test.minus6:
-        test_set = musdb.DB(args.dset.musdb_minus6, subsets=["test"], is_wav=True)
     elif args.test.plus3:
         test_set = musdb.DB(args.dset.musdb_plus3, subsets=["test"], is_wav=True)
-    elif args.test.minus3:
-        test_set = musdb.DB(args.dset.musdb_minus3, subsets=["test"], is_wav=True)
     elif args.test.plus1:
         test_set = musdb.DB(args.dset.musdb_plus1, subsets=["test"], is_wav=True)
-    elif args.test.minus1:
-        test_set = musdb.DB(args.dset.musdb_minus1, subsets=["test"], is_wav=True)
-    elif args.test.plus0:
-        test_set = musdb.DB(args.dset.musdb_plus0, subsets=["test"], is_wav=True)
     elif args.test.plus15:
         test_set = musdb.DB(args.dset.musdb_plus15, subsets=["test"], is_wav=True)
+    elif args.test.plus13:
+        test_set = musdb.DB(args.dset.musdb_plus13, subsets=["test"], is_wav=True)
     elif args.test.bandpass_300_8000:
         test_set = musdb.DB(args.dset.musdb_bandpass_300_8000, subsets=["test"], is_wav=True)
     elif args.test.RIR1:
@@ -231,24 +223,18 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "vocal_loud"
                 elif args.test.plus10:
                     dataset_name = "loudness_+10"
-                elif args.test.minus10:
-                    dataset_name = "loudness_-10"
                 elif args.test.plus6:
                     dataset_name = "loudness_+6"
-                elif args.test.minus6:
-                    dataset_name = "loudness_-6"
                 elif args.test.plus3:
                     dataset_name = "loudness_+3"
-                elif args.test.minus3:
-                    dataset_name = "loudness_-3"
                 elif args.test.plus1:
                     dataset_name = "loudness_+1"
-                elif args.test.minus1:
-                    dataset_name = "loudness_-1"
                 elif args.test.plus0:
                     dataset_name = "loudness_+0"
                 elif args.test.plus15:
                     dataset_name = "loudness_+15"
+                elif args.test.plus13:
+                    dataset_name = "loudness_+13"
                 elif args.test.bandpass_300_8000:
                     dataset_name = "bandpass_300_8000"
                 elif args.test.RIR1:

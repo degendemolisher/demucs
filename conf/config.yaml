@@ -25,15 +25,11 @@ dset:
   musdb_vocal_soft: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_soft
   musdb_vocal_loud: /mnt/parscratch/users/aca22cyy/musdb18hq_vocal_loud
   musdb_plus10: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+10dB
-  musdb_minus10: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_-10dB
   musdb_plus6: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+6dB
-  musdb_minus6: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_-6dB
   musdb_plus3: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+3dB
-  musdb_minus3: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_-3dB
   musdb_plus1: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+1dB
-  musdb_minus1: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_-1dB
-  musdb_plus0: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+0dB
   musdb_plus15: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+15dB
+  musdb_plus13: /mnt/parscratch/users/aca22cyy/musdb18hq_loudness_+13dB
   musdb_bandpass_300_8000: /mnt/parscratch/users/aca22cyy/musdb18hq_bandpass_300_8000
   musdb_RIR1: /mnt/parscratch/users/aca22cyy/musdb18hq_RIR1
   musdb_RIR2: /mnt/parscratch/users/aca22cyy/musdb18hq_RIR2
@@ -84,15 +80,11 @@ test:
   vocal_soft: False
   vocal_loud: False
   plus10: False
-  minus10: False
   plus6: False
-  minus6: False
   plus3: False
-  minus3: False
   plus1: False
-  minus1: False
-  plus0: False
   plus15: False
+  plus13: False
   bandpass_300_8000: False
   RIR1: False
   RIR2: False
