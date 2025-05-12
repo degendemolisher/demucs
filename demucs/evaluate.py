@@ -135,6 +135,8 @@ def evaluate(solver, compute_sdr=False):
         test_set = musdb.DB(args.dset.musdb_minus1, subsets=["test"], is_wav=True)
     elif args.test.plus0:
         test_set = musdb.DB(args.dset.musdb_plus0, subsets=["test"], is_wav=True)
+    elif args.test.plus15:
+        test_set = musdb.DB(args.dset.musdb_plus15, subsets=["test"], is_wav=True)
     elif args.test.bandpass_300_8000:
         test_set = musdb.DB(args.dset.musdb_bandpass_300_8000, subsets=["test"], is_wav=True)
     elif args.test.RIR1:
@@ -143,6 +145,8 @@ def evaluate(solver, compute_sdr=False):
         test_set = musdb.DB(args.dset.musdb_RIR2, subsets=["test"], is_wav=True)
     elif args.test.speech:
         test_set = musdb.DB(args.dset.musdb_speech, subsets=["test"], is_wav=True)
+    elif args.test.mono:
+        test_set = musdb.DB(args.dset.musdb_mono, subsets=["test"], is_wav=True)
     elif args.test.custom:
         test_set = musdb.DB(args.dset.custom, subsets=["test"], is_wav=True)
     elif args.test.nonhq is None:
@@ -243,6 +247,8 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "loudness_-1"
                 elif args.test.plus0:
                     dataset_name = "loudness_+0"
+                elif args.test.plus15:
+                    dataset_name = "loudness_+15"
                 elif args.test.bandpass_300_8000:
                     dataset_name = "bandpass_300_8000"
                 elif args.test.RIR1:
@@ -251,6 +257,8 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "RIR2"
                 elif args.test.speech:
                     dataset_name = "speech"
+                elif args.test.mono:
+                    dataset_name = "mono"
                 elif args.test.input_loudness_db:
                     dataset_name = f"loudness_{'+' if args.test.input_loudness_db > 0 else ''}{args.test.input_loudness_db}"
                 elif args.test.custom:
