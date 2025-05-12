@@ -229,8 +229,6 @@ def evaluate(solver, compute_sdr=False):
                     dataset_name = "loudness_+3"
                 elif args.test.plus1:
                     dataset_name = "loudness_+1"
-                elif args.test.plus0:
-                    dataset_name = "loudness_+0"
                 elif args.test.plus15:
                     dataset_name = "loudness_+15"
                 elif args.test.plus13:
